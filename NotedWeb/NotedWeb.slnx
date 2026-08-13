@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="../../../Code/mCore/mCore.csproj" />
+  <Project Path="../NotedData/NotedData.csproj" Id="29044200-609b-4f2e-bda7-7fa2ed546092" />
+  <Project Path="NotedWeb/NotedWeb.csproj" />
+</Solution>

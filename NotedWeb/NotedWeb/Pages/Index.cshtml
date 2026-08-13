@@ -1,0 +1,28 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+
+
+
+    <h3>For Authentication testing:</h3>
+
+    <div class="container">
+        <ul>
+            <li><a href="~/AuthPageAnonymous">Anonymous</a></li>
+            <li><a href="~/AuthPageRequireAuthenticate">Any user</a></li>
+            <li><a href="~/AuthPageRequireAuthorize">Specific Role</a></li>
+        </ul>
+
+    </div>
+    
+    <h4>Login / Logout</h4>
+    <a href="/login">Login</a><br />
+    <a href="/logout">Logout</a><br />
+
+</div>

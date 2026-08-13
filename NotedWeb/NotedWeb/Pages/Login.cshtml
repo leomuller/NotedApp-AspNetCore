@@ -1,0 +1,59 @@
+﻿@page
+@model NotedWeb.Pages.LoginModel
+@{
+    ViewData["Title"] = "Sign in";
+}
+
+<div class="container">
+    <div class="row justify-content-center min-vh-80 align-items-center">
+        <div class="col-12 col-md-8 col-lg-5">
+            <div class="card shadow-sm">
+                <div class="card-body p-4 p-md-5">
+                    @if (Model.ShowSuccess)
+                    {
+                        <div class="text-center mb-4">
+                            <h2 class="fw-bold">Welcome</h2>
+                            <p class="text-muted">You have successfully signed in.</p>
+                            <div class="alert alert-success text-center" role="alert">
+                                @Model.SuccessMessage
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-muted">You can now continue to the application.</p>
+                            <a href="@Model.ReturnUrl" class="btn btn-primary">Continue</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center mb-4">
+                            <h2 class="fw-bold">Sign in</h2>
+                            <p class="text-muted">Please enter your credentials to continue</p>
+                            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                            {
+                                <div class="alert alert-danger text-center" role="alert">
+                                    @Model.ErrorMessage
+                                </div>
+                            }
+                        </div>
+                        <form method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                            <div class="mb-3">
+                                <label asp-for="Input.LoginName" class="form-label">Login</label>
+                                <input asp-for="Input.LoginName" class="form-control" autocomplete="on" aria-required="true" placeholder="" />
+                                <span asp-validation-for="Input.LoginName" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="Input.Password" class="form-label">Password</label>
+                                <input asp-for="Input.Password" class="form-control" autocomplete="on" aria-required="true" placeholder="" />
+                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Sign in</button>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

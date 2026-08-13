@@ -1,0 +1,50 @@
+# .NET build outputs
+bin/
+obj/
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# NuGet
+*.nupkg
+**/packages/*
+!**/packages/build/
+
+# Publish / deploy artifacts
+publish/
+*.publish.xml
+
+# Test results
+TestResults/
+
+# ASP.NET Core environment-specific settings
+# Keep appsettings.json in repo as a template/structure reference.
+# Exclude files that contain real connection strings, keys, or secrets.
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Staging.json
+
+# Secret managers
+secrets.json
+
+# Local DB files
+*.mdf
+*.ldf
+*.ndf
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
