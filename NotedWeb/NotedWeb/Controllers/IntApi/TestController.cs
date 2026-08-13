@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NotedWeb.Services.Auth;
 
 namespace NotedWeb.Controllers.IntApi
 {
@@ -7,6 +8,13 @@ namespace NotedWeb.Controllers.IntApi
 	[ApiController]
 	public class TestController : Controller
 	{
+		private readonly AuthService _authService;
+
+		public TestController(AuthService authService)
+		{
+			_authService = authService;
+		}
+
 		[HttpGet]
 		[Route("first")]
 		public IActionResult Index()
@@ -24,5 +32,16 @@ namespace NotedWeb.Controllers.IntApi
 
 			return Ok(res);
 		}
+
+		[HttpGet]
+		[Route("testauthentication")]
+		public async Task<IActionResult> TestAuthentication()
+		{
+			var session = await _authService.GetSessionAsync();
+
+			return Ok(session);
+		}
+
+
 	}
 }
