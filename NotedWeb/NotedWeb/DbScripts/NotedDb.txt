@@ -1,0 +1,33 @@
+﻿
+--scripts for NoteDb POC tables.
+
+
+
+
+CREATE TABLE ntd_notes
+(
+    note_id serial NOT NULL,
+    login_id integer NOT NULL,
+    note_title text NULL,
+    note_text text NOT NULL,
+    is_pinned boolean NOT NULL,
+    is_deleted boolean NOT NULL,
+    date_created timestamp NOT NULL,
+    date_updated timestamp NOT NULL,
+    date_deleted timestamp NULL,
+    CONSTRAINT pk_ntd_notes PRIMARY KEY (note_id)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+

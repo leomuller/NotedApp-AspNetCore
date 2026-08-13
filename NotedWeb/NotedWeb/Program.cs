@@ -9,6 +9,10 @@ builder.Services.AddControllers();   // API controllers
 builder.Services.AddOpenApi();       // OpenAPI document generation
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<NotedWeb.Services.Auth.AuthService>();
+//builder.Services.AddScoped<NotedData.NotedApp.Repositories.INoteRepository>(sp =>
+//{
+//	return new NotedData.NotedApp.Repositories.NoteRepository(NotedWeb.AppCode.Config.MyProps.NoteDb);
+//});
 
 var app = builder.Build();
 
