@@ -56,7 +56,32 @@ namespace NotedWeb.Services.Auth
 
 		}
 
-	
+
+		public async Task<String> LoginAsync(string login, string password)
+		{
+			var clsLoginManager = new LoginManager();
+			string sessionCode = string.Empty;
+
+
+			//check login and password:
+			var clsLoginVerifyResult = await clsLoginManager.VerifyPasswordForLoginText(MyProps.MstAppID, login, password);
+
+			if (clsLoginVerifyResult.PasswordCorrect == true && clsLoginVerifyResult.LoginID.HasValue)
+			{
+				//login success, create session:
+				var clsSessionManager = new SessionManager();
+				sessionCode = clsSessionManager.CreateEncryptedSessionCode(clsLoginVerifyResult.LoginID.Value, MyProps.MstAppID);
+				await clsSessionManager.CreateSessionAsync(MyProps.MstAppID, clsLoginVerifyResult.LoginID.Value, sessionCode);
+
+				//save last login:
+				await clsLoginManager.UpdateLastLoginDateAsync(MyProps.MstAppID, clsLoginVerifyResult.LoginID.Value);
+			}
+
+			return sessionCode;
+		}
+
+		
+
 
 
 	}	

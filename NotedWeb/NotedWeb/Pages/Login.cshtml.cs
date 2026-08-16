@@ -53,14 +53,14 @@ namespace NotedWeb.Pages
 				//save last login:
 				await clsLoginManager.UpdateLastLoginDateAsync(MyProps.MstAppID, clsLoginVerifyResult.LoginID.Value);
 
-					//save login cookie:
-					SetSessionCookie(sessionCode);
+				//save login cookie:
+				SetSessionCookie(sessionCode);
 
-					SuccessMessage = "Welcome! You have successfully signed in.";
-					ShowSuccess = true;
+				SuccessMessage = "Welcome! You have successfully signed in.";
+				ShowSuccess = true;
 
-					return Page();
-				}
+				return Page();
+			}
 
 				// if you got here, Login failed
 			ErrorMessage = "Invalid login credentials..";
