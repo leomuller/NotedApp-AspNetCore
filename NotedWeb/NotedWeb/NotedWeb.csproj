@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\lib\bootstrap_5.3.8\" />
+    <Folder Include="wwwroot\poc\notedapp\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -25,6 +25,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseDefaultFiles();
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -40,6 +41,9 @@ app.MapScalarApiReference(options =>
 {
 	options.WithTitle("NotedWeb Internal API");     //https://localhost:7190/scalar/v1
 });
+
+// SPA fallback for Angular under /poc/notedapp
+app.MapFallbackToFile("poc/notedapp/{*path:nonfile}", "poc/notedapp/index.html");
 
 app.MapRazorPages()
    .WithStaticAssets();
